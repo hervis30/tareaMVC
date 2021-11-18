@@ -1,0 +1,63 @@
+﻿@model IEnumerable<EmpresaMvc.Models.registro>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center">Registre su idea de negocio</h2>
+<br />
+<div class="row text-center">
+    <div class="col-img">
+        <img src="~/Content/idea.jpg" width="650" height="450" />
+    </div>
+</div>
+<br /><br />
+<p>
+    @Html.ActionLink("Registre una nueva empresa", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sector)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contacto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.celular)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sector)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.contacto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.celular)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.codEmpresa }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.codEmpresa }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.codEmpresa })
+        </td>
+    </tr>
+}
+
+</table>
